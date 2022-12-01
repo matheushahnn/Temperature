@@ -1,11 +1,10 @@
 require 'temperature'
 
 describe Temperature do
-
   describe '#initialize' do
     context 'given a wrong temperature' do
       it 'throws an error' do
-        expect {Temperature.new('10')}.to raise_error
+        expect { Temperature.new('10') }.to raise_error
       end
     end
   end

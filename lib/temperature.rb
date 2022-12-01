@@ -7,7 +7,7 @@ class Temperature
     end
 
     @value = temperature.scan(/[0-9]+/).first.to_f
-    @symbol = temperature.scan(/[C|F|K]/).first.to_s
+    @symbol = temperature.scan(/[C|FK]/).first.to_s
   end
 
   def valid?(temperature)
