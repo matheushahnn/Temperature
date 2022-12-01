@@ -1,7 +1,16 @@
 require 'temperature'
 
 describe Temperature do
-  describe '#celsius' do
+
+  describe '#initialize' do
+    context 'given a wrong temperature' do
+      it 'throws an error' do
+        expect {Temperature.new('10')}.to raise_error
+      end
+    end
+  end
+
+  describe '#to_celsius' do
     context 'given Celsius temperature' do
       it 'returns same temperature' do
         expect(Temperature.new('10°C').to_celsius).to eq('10.0°C')
@@ -21,7 +30,7 @@ describe Temperature do
     end
   end
 
-  describe '#kelvin' do
+  describe '#to_kelvin' do
     context 'given Celsius temperature' do
       it 'returns converted temperature' do
         expect(Temperature.new('10°C').to_kelvin).to eq('283.15K')
@@ -41,7 +50,7 @@ describe Temperature do
     end
   end
 
-  describe '#fahrenheit' do
+  describe '#to_fahrenheit' do
     context 'given Celsius temperature' do
       it 'returns converted temperature' do
         expect(Temperature.new('10°C').to_fahrenheit).to eq('50.0°F')
