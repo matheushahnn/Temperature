@@ -1,8 +1,6 @@
 require 'converter'
 
 class Temperature
-  attr_accessor
-
   def initialize(temperature)
     unless valid?(temperature)
       raise "Invalid temperature #{temperature}, please give in the right format. e.g.: 10°C, 72°F or 274K"
@@ -10,7 +8,6 @@ class Temperature
 
     @value = temperature.scan(/[0-9]+/).first.to_f
     @symbol = temperature.scan(/[C|F|K]/).first.to_s
-    converter
   end
 
   def valid?(temperature)
