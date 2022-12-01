@@ -1,7 +1,24 @@
+This is a Temperature class created using bundle and rspec.
+Given the temperature in the correct format (°C, °F or K) it can convert to any other temperature measure
 
-Desafio
+## install gems
+`bundle install`
 
-- setup de um projeto Ruby com Bundle
-- faça uma classe Temperature o qual uma instância dela representa uma temperatura em uma dessas 3 unidades: Celsius, Kelvin, Fahrenheit
-- o modo como você vai representar essa abstração ou dividir as responsabilidades dentro dela é à sua escolha (a gente debate depois qual o jeito mais rubeiro de fazer)
-- testes com Rspec
+## Usage
+```
+require 'temperature'
+
+# convert 10°C to Celsius
+Temperature.new('10°C').to_celsius
+
+# convert 10°C to Fahrenheit
+Temperature.new('10°C').to_fahrenheit
+
+# convert 10°C to Kelvin
+Temperature.new('10°C').to_kelvin
+```
+
+
+## run tests
+`bundle exec rspec`
+
