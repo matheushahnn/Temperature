@@ -6,7 +6,7 @@ class Temperature
       raise "Invalid temperature #{temperature}, please give in the right format. e.g.: 10°C, 72°F or 274K"
     end
 
-    @value = temperature.scan(/[0-9]+/).first.to_f
+    @value = temperature.scan(/[-]?[0-9]*[.]?[0-9]+/).first.to_f
     @symbol = temperature.scan(/[C|FK]/).first.to_s
   end
 
@@ -28,5 +28,9 @@ class Temperature
 
   def to_fahrenheit
     converter.to_fahrenheit
+  end
+
+  def display
+    converter.display
   end
 end
