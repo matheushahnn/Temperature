@@ -1,6 +1,6 @@
 class TemperatureInterface
   def initialize(temperature)
-    @value = @temp = temperature
+    @temp = temperature
   end
 
   def to_celsius

@@ -1,13 +1,9 @@
 require 'interfaces/temperature'
 
 class KelvinTemperature < TemperatureInterface
-  def initialize(temperature)
-    super(temperature)
-  end
-
   def to_celsius
-    @value = (@temp - 273.15).round(2)
-    Temperature.new("#{@value}°C")
+    value = (@temp - 273.15).round(2)
+    Temperature.new("#{value}°C")
   end
 
   def to_kelvin
@@ -15,11 +11,7 @@ class KelvinTemperature < TemperatureInterface
   end
 
   def to_fahrenheit
-    @value = (((@temp - 273.15) * 9.0 / 5.0) + 32).round(2)
-    Temperature.new("#{@value}°F")
-  end
-
-  def display
-    "#{@value}K"
+    value = (((@temp - 273.15) * 9.0 / 5.0) + 32).round(2)
+    Temperature.new("#{value}°F")
   end
 end
