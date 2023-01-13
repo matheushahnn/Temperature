@@ -1,6 +1,8 @@
 require 'converter'
 
 class Temperature
+
+  attr_accessor :value
   def initialize(temperature)
     unless valid?(temperature)
       raise "Invalid temperature #{temperature}, please give in the right format. e.g.: 10°C, 72°F or 274K"
@@ -32,5 +34,9 @@ class Temperature
 
   def display
     @symbol == 'K' ? "#{@value}#{@symbol}" : "#{@value}°#{@symbol}"
+  end
+
+  def +(temperature)
+    Temperature.new("#{self.to_celsius.value + temperature.to_celsius.value}°#{@symbol}")
   end
 end

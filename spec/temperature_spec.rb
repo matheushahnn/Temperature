@@ -80,4 +80,26 @@ describe Temperature do
       end
     end
   end
+
+  describe '#+' do
+    context 'given a temperature in Celsius' do
+      context 'sum a temperature in Celsius' do
+        it 'returns the sum of temperature in Celsius' do
+          expect((Temperature.new('10°C') + Temperature.new('20°C')).display).to eq('30.0°C')
+        end
+      end
+
+      context 'sum a temperature in Fahrenheit' do
+        it 'returns the sum of temperature in Celsius' do
+          expect((Temperature.new('10°C') + Temperature.new('100°F')).display).to eq('47.78°C')
+        end
+      end
+
+      context 'sum a temperature in Kelvin' do
+        it 'returns the sum of temperature in Celsius' do
+          expect((Temperature.new('10°C') + Temperature.new('100K')).display).to eq('-163.15°C')
+        end
+      end
+    end
+  end
 end
