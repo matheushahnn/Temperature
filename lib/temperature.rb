@@ -1,12 +1,14 @@
 require 'converter'
 
 class Temperature
+
+  attr_accessor :value
   def initialize(temperature)
     unless valid?(temperature)
       raise "Invalid temperature #{temperature}, please give in the right format. e.g.: 10°C, 72°F or 274K"
     end
 
-    @value = temperature.scan(/[0-9]+/).first.to_f
+    @value = temperature.scan(/-?[0-9]*[.]?[0-9]+/).first.to_f
     @symbol = temperature.scan(/[C|FK]/).first.to_s
   end
 
@@ -28,5 +30,13 @@ class Temperature
 
   def to_fahrenheit
     converter.to_fahrenheit
+  end
+
+  def display
+    @symbol == 'K' ? "#{@value}#{@symbol}" : "#{@value}°#{@symbol}"
+  end
+
+  def +(temperature)
+    Temperature.new("#{self.to_celsius.value + temperature.to_celsius.value}°#{@symbol}")
   end
 end
